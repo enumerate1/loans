@@ -12,7 +12,14 @@ updated_at pgtype.Timestamptz
 deleted_at pgtype.Timestamptz
 loan_ids pgtype.TextArray (maybe don't need)
 ```
-
+### user_loans: (the primary key is composite key (user_id, loan_id)))
+```
+user_id pgtype.Text
+loan_id pgtype.Text
+created_at pgtype.Timestamptz
+updated_at pgtype.Timestamptz
+deleted_at pgtype.Timestamptz
+```
 ### loans
 ```
 loan_id pgtype.Text
@@ -33,12 +40,14 @@ current_month_repayment pgtype.Int4 (default 0)
 ```
 
 ### repayments
+```
 repayment_id pgtype.Text
 loan_id pgtype.Text
 created_at pgtype.Timestamptz
 updated_at pgtype.Timestamptz
 deleted_at pgtype.Timestamptz
 amount pgtype.Float4
+```
 
 
 ## API design:
