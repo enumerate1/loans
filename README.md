@@ -80,8 +80,8 @@ some logic have to handle here:
 we have 2 case here: `in_process` and `completed`
 we have to use transaction, and block row to handle concurrency here, if not -> we fail
 step 1: get the row on `loans` table and block (hint: FOR UPDATE)
-step 2: check the amount of the user can repayment all or not, if not -> go to step 3, if yes (like step 3, 4) but update completed_at and status become -> LOAN_STATUS_COMPLETED
-step 3: create record on `repayment` (hint: RETURNING repayment_id)
+step 2: check the amount of the user can repayment all or not, if not -> go to step 3, if yes (like step 3, 4) but update completed_at and status become -> LOAN_STATUS_COMPLETED </br>
+step 3: create record on `repayment` (hint: RETURNING repayment_id) </br>
 step 4: UPDATE multi values to the `loans` table:
 + repayment_ids -> append 
 + current_month_repayment (plus 1)
